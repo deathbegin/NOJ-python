@@ -1,30 +1,13 @@
-#T072, s8-2
+# T075, s8-5
 import pandas as pd
-
-
-def Op(x, y, op):
-    if("plus" == op):
-        return x*y
-    elif("power" == op):
-        return x**y
-    elif("minux" == op):
-        return x-y
-    elif("divide" == op):
-        if(0 == y):
-            return "ERROR"
-        return x/y
-    elif("mutiply" == op):
-        return x*y
-
 
 n = int(input())
 table = []
-for i in range(n):
+for i in range(5*n):
     t = list(input().split())
     table.append(t)
-# print(table)
-
-df = pd.DataFrame(table, columns=['Num1', 'Num2', 'Op'])
+df = pd.DataFrame(table, columns=["Mon", "Part", "Num", "Price"])
 print(df)
-df["result"] = df.apply(lambda x: Op(
-    x['Num1'], x['Num2', x['Op']]), axis=1)
+
+df_new = pd.pivot_table(df, index=["Mon", "Part"]).T
+print(df_new)
