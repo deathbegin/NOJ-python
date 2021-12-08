@@ -25,8 +25,8 @@ while(1):
         break
     if '1' == li[0]:
         s.push(int(li[2:]))
-    else:
+    elif '2'==li[0]:
         s.pop()
-    if li[-1] == ' ':
+    elif li[0] == '0':
         break
 s.out()
